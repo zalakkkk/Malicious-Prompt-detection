@@ -1,1 +1,1 @@
-# Malicious-Prompt-detection
+This project is a web-based application designed to detect and analyze potentially harmful or malicious prompts given to Large Language Models (LLMs). It focuses on identifying security risks such as prompt injection, jailbreak attempts, and malicious intent.
