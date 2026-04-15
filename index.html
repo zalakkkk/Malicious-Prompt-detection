@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Prompt Security Scanner</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            padding: 0;
+            background: url("https://t4.ftcdn.net/jpg/05/11/09/55/360_F_511095523_WUmBt4yw9wAkNA72R5GHOvMP1vpU8p9W.jpg") no-repeat center center/cover;
+            height: 200vh;
+            color: white;
+            overflow-y: auto;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            width: 60%;
+            margin: auto;
+            margin-top: 50px;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        textarea {
+            width: 90%;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #e60000;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.1);
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: rgba(255,255,255,0.2);
+            margin: 5px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        /* 🔥 Floating hacker stickers */
+        .sticker {
+            position: absolute;
+            width: 80px;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .s1 { top: 10%; left: 5%; }
+        .s2 { top: 70%; left: 10%; }
+        .s3 { top: 20%; right: 5%; }
+        .s4 { bottom: 10%; right: 10%; }
+    </style>
+</head>
+
+<body>
+
+<!-- 🔥 Stickers -->
+<img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" class="sticker s1">
+<img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" class="sticker s2">
+<img src="https://cdn-icons-png.flaticon.com/512/565/565547.png" class="sticker s3">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png" class="sticker s4">
+
+<div class="container">
+
+    <h1>🛡️ AI Prompt Security Scanner</h1>
+
+    <form method="POST">
+        <textarea name="text" rows="5" placeholder="Enter prompt..."></textarea><br>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if text %}
+    <div class="box">
+        <h3>📝 Input</h3>
+        <p>{{ text }}</p>
+    </div>
+
+    <div class="box">
+        <h3>🚨 Attack Type</h3>
+        <p>{{ attack_type }}</p>
+    </div>
+
+    <div class="box">
+        <h3>⚠️ Risk Level</h3>
+        <p>{{ risk }}</p>
+    </div>
+
+    <div class="box">
+        <h3>🔍 Detected Patterns</h3>
+        <ul>
+            {% for m in matches %}
+                <li>{{ m }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
